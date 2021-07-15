@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вливаем списки для маркетинга</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/papaparse.js"></script>
+  <script src="https://api.bitrix24.com/api/v1/"></script>
+  <script src="js/application.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="input-area" id="input_local" style="display:block">
+      <table>
+        <tr>
+          <td>
+            <h2>Загрузить мероприятия:</h2>
+            <input type="file" multiple="" name="59" class="btnLoad">
+          </td>
+          <td>
+            <h2>Загрузить посетителей:</h2>
+            <input type="file" multiple="" name="43" class="btnLoad">
+          </td>
+        </tr>
+      </table>
+      
+      <div style="padding-top:30px; display:none;" class="fields_select">
+        <div style="padding-top:30px;" id="events_list"></div>
+        
+        <div>
+          <h2 style="margin-bottom:20px">   Соответствие полей</h2>
+          <div class="tableRows"></div>
+
+          <div class="text-center buttonupload">
+            <br><br>
+            <button id="sendData">Загрузить</button>
+            <br><br>
+            <div class="text-center" id="counter-upl"><p></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function()	{
+      document.querySelectorAll('.btnLoad').forEach(function(btnLoad)  {
+        btnLoad.onmouseover = ()  => btnLoad.style.background ="purple";
+        btnLoad.onmouseout = () =>  btnLoad.style.background ="";
+        btnLoad.onclick = ()  =>  app.onSelectList(btnLoad.name);
+      })
+    }
+  </script>
+</body>
+</html>
